@@ -1,0 +1,74 @@
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pyc
+
+# Jupyter & IPython
+.ipynb_checkpoints
+
+# Logs
+*.log
+*.out
+*.err
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/config.toml
+
+# Model/Data artifacts
+*.h5
+*.hdf5
+*.pb
+*.onnx
+*.pt
+*.ckpt
+*.pkl
+*.joblib
+*.npy
+*.npz
+
+# Generated images/videos
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+*.bak
+*.tmp
+
+# Python egg stuff
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Conda environments
+env/
+*.conda
+*.ipynb
+
+# Test / coverage
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+.pytest_cache/
+
+# System files
+~$*
