@@ -4,7 +4,7 @@ from utils.emotion_recognition import run_emotion_detection_streamlit
 def render():
     if st.button("↩️ Wróć do menu"):
         st.session_state.page = "main"
-        st.experimental_rerun()
+        st.rerun()
         st.stop() 
 
     st.header("😊 Analiza emocji w czasie rzeczywistym")
