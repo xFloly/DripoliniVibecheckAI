@@ -61,6 +61,9 @@ def render():
         if st.button("🎨 Kolory"):
             st.session_state.page = "color"
             st.rerun()
+        if st.button("🤖 Gemini"):
+            st.session_state.page = "gemini"
+            st.rerun()
 
     # Główna sekcja – tytuł i opis
     st.markdown('<div class="main-title">🧠 Informatyka Afektywna</div>', unsafe_allow_html=True)

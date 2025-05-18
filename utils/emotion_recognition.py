@@ -26,7 +26,7 @@ def run_emotion_detection_streamlit():
         st.warning("⚠️ Kamera niedostępna. Pokazuję obraz zastępczy.")
         img = cv2.imread("img/image.png")
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        st.image(Image.fromarray(img_rgb), caption="Obraz zastępczy", use_column_width=True)
+        st.image(Image.fromarray(img_rgb), caption="Obraz zastępczy", use_container_width=True)
         return
 
     last_time = time.time()
@@ -68,7 +68,8 @@ def run_emotion_detection_streamlit():
 
         # Wyświetl obraz
         img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-        stframe.image(img, channels="RGB", use_column_width=True)
+        stframe.image(img, channels="RGB", use_container_width=True)
 
     cap.release()
+    st.session_state["mood"] = emotion
     st.session_state["stop_emotion"] = False
