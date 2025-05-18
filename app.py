@@ -1,18 +1,32 @@
 import streamlit as st
-from views import main_menu, emotion_page, tryon_page, color_page
+from views import upload_view, outfit_view, emotion_view, color_view, context_view, summary_view
 
-st.set_page_config(page_title="Informatyka Afektywna", layout="centered")
+# Initialize session state
+if 'step' not in st.session_state:
+    st.session_state.step = 'start'
 
-# Inicjalizacja widoku
-if "page" not in st.session_state:
-    st.session_state.page = "main"
+st.title("👗 AI Stylist: Virtual Fashion Assistant")
 
-# Routing
-if st.session_state.page == "main":
-    main_menu.render()
-elif st.session_state.page == "emotion":
-    emotion_page.render()
-elif st.session_state.page == "tryon":
-    tryon_page.render()
-elif st.session_state.page == "color":
-    color_page.render()
+if st.session_state.step == 'start':
+    st.subheader("Welcome to your AI Styling Assistant")
+    if st.button("🚀 Begin Styling"):
+        st.session_state.step = 'upload'
+        st.experimental_rerun()
+
+elif st.session_state.step == 'upload':
+    upload_view.render()
+
+elif st.session_state.step == 'describe_outfit':
+    outfit_view.render()
+
+elif st.session_state.step == 'emotion':
+    emotion_view.render()
+
+elif st.session_state.step == 'colors':
+    color_view.render()
+
+elif st.session_state.step == 'context':
+    context_view.render()
+
+elif st.session_state.step == 'done':
+    summary_view.render()

@@ -13,3 +13,7 @@ dependencies:
       - opencv-python==4.7.0.72
       - tensorflow==2.13.0
       - streamlit==1.34.0
+      - ultralytics
+      - scikit-learn
+      - google-generativeai
+
