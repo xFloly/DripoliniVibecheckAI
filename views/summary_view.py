@@ -12,5 +12,6 @@ def render():
 
     navigation_controls(
         current_step='done',
-        back_step='context'
+        back_step='context',
+        next_step='propose'
     )

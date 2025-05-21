@@ -1,5 +1,5 @@
 import streamlit as st
-from views import upload_view, outfit_view, emotion_view, color_view, context_view, summary_view
+from views import upload_view, outfit_view, emotion_view, color_view, context_view, summary_view, propose_view, try_on_view
 
 # Initialize session state
 if 'step' not in st.session_state:
@@ -11,7 +11,7 @@ if st.session_state.step == 'start':
     st.subheader("Welcome to your AI Styling Assistant")
     if st.button("🚀 Begin Styling"):
         st.session_state.step = 'upload'
-        st.experimental_rerun()
+        st.rerun()
 
 elif st.session_state.step == 'upload':
     upload_view.render()
@@ -27,6 +27,12 @@ elif st.session_state.step == 'colors':
 
 elif st.session_state.step == 'context':
     context_view.render()
+    
+elif st.session_state.step == 'propose':
+    propose_view.render()
 
 elif st.session_state.step == 'done':
     summary_view.render()
+    
+elif st.session_state.step == 'try_on':
+    try_on_view.render()

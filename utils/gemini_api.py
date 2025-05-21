@@ -1,6 +1,9 @@
 import os
 import google.generativeai as genai
 from PIL import Image
+import utils.prompt
+import streamlit as st
+
 
 # Initialize Gemini with API key
 genai.configure(api_key='AIzaSyDNam5AtruOM5K3VviHIUj9FpOtaZcp8Cs')
@@ -30,3 +33,20 @@ def describe_emotion(image_path, extra_prompt=None):
 
     response = model.generate_content([full_prompt, image])
     return response.text
+
+def propose_clothes(image_path, outfit_desc,emotion, colors, context):
+
+    image = Image.open(image_path)
+
+    full_prompt, catalog = utils.prompt.build_prompt(
+        outfit_desc=outfit_desc,
+        emotion=emotion,
+        colors=colors,
+        context=context
+    )
+    response = model.generate_content([full_prompt, image])
+    print("Response from Gemini:", response.text)
+    # Decode the clothing output
+    propose_clothes = utils.prompt.decode_clothing_output(response.text, catalog)
+    
+    return propose_clothes

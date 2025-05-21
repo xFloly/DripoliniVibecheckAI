@@ -16,4 +16,4 @@ dependencies:
       - ultralytics
       - scikit-learn
       - google-generativeai
-
+      - gradio_client

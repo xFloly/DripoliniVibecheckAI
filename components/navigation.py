@@ -6,16 +6,16 @@ def navigation_controls(current_step, back_step=None,next_step=None):
     with col1:
         if back_step and st.button("⬅️ Back"):
             st.session_state.step = back_step
-            st.experimental_rerun()
+            st.rerun()
 
     with col2:
         if st.button("🔁 Restart"):
-            for key in ['step', 'image_path', 'outfit_desc', 'emotion', 'colors', 'context']:
+            for key in ['step', 'image_path', 'outfit_desc', 'emotion', 'colors', 'context', 'selected_item_id', 'fitted_person', 'propose']:
                 st.session_state[key] = None
             st.session_state.step = 'start'
-            st.experimental_rerun()
+            st.rerun()
     
     with col3:
         if next_step and st.button("➡️ Next"):
             st.session_state.step = next_step
-            st.experimental_rerun()
+            st.rerun()

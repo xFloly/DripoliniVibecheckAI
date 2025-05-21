@@ -20,7 +20,7 @@ def render():
     if st.session_state.colors:
         if st.button("✅ Save & Describe Context"):
             st.session_state.step = 'context'
-            st.experimental_rerun()
+            st.rerun()
     else:
         st.warning("Please wait for color extraction before continuing.")
 
