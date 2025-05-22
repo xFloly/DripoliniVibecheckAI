@@ -1,4 +1,5 @@
 import streamlit as st
+
 from components.navigation import navigation_controls
 from utils.try_on import run_try_on
 
@@ -8,7 +9,7 @@ if 'fitted_person' not in st.session_state:
 
 def render():
     st.subheader("Step 6: Try on the outfit")
-    
+
     st.session_state.fitted_person = None
     if st.session_state.fitted_person is None:
         with st.spinner("Generating your outfit..."):

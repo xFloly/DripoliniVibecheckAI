@@ -1,9 +1,10 @@
 import streamlit as st
+
 from components.navigation import navigation_controls
 
 def render():
     st.subheader("✅ Summary")
-    
+
     st.markdown("---")
 
     left_col, right_col = st.columns([1, 2], gap="large")
@@ -25,7 +26,6 @@ def render():
             for color in colors
         ])
 
-        # Style block for info
         st.markdown("#### Summary Details")
         st.markdown(
             f"""
@@ -40,7 +40,7 @@ def render():
                 <strong>Age:</strong> {face_data['age']}<br>
                 <strong>Gender:</strong> {face_data['gender']}<br><br>
                 <strong>Color Palette:</strong><br>{swatches}<br><br>
-                <strong>Context:</strong> {st.session_state.context}
+                <strong>Event:</strong> {st.session_state.context}
             </div>
             """,
             unsafe_allow_html=True

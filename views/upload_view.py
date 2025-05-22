@@ -32,7 +32,6 @@ def render():
             st.error("❌ No person detected. Please try a different image.")
             st.session_state.person_detected = False
 
-    # Show navigation only if person detected
     navigation_controls(
         current_step='upload',
         back_step=None,

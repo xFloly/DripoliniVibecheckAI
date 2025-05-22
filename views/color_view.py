@@ -1,12 +1,15 @@
 import streamlit as st
+
 from utils.color import extract_dominant_colors
 from components.navigation import navigation_controls
 
-if 'colors' not in st.session_state:
-    st.session_state['colors'] = None
+
     
 
 def render():
+    if 'colors' not in st.session_state:
+        st.session_state['colors'] = None
+        
     st.subheader("Step 4: Color Palette")
 
     st.markdown("---") 

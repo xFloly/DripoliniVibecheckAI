@@ -1,11 +1,12 @@
 import streamlit as st
-from views import upload_view, outfit_view, face_view, color_view, context_view, summary_view, propose_view, try_on_view
+from views import outfit_desc_view, upload_view, face_view, color_view, context_view, summary_view, propose_view, try_on_view
 
 # Initialize session state
 if 'step' not in st.session_state:
     st.session_state.step = 'start'
 
-st.title("👗 AI Stylist: Virtual Fashion Assistant")
+st.title("🧢 Outfitly – Your Smart Outfit Updater")
+st.caption("AI-powered assistant that analyzes your look and suggests the perfect outfit for any occasion.")
 
 if st.session_state.step == 'start':
     st.subheader("Welcome to your AI Styling Assistant")
@@ -17,7 +18,7 @@ elif st.session_state.step == 'upload':
     upload_view.render()
 
 elif st.session_state.step == 'describe_outfit':
-    outfit_view.render()
+    outfit_desc_view.render()
 
 elif st.session_state.step == 'face':
     face_view.render()

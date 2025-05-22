@@ -1,10 +1,7 @@
 import streamlit as st
+
 from components.navigation import navigation_controls
 from utils.gemini_api import describe_outfit
-
-if "describe_outfit" not in st.session_state:
-    st.session_state.describe_outfit = None
-
 
 def render():
     if "describe_outfit" not in st.session_state:
@@ -20,12 +17,12 @@ def render():
         st.image(
             st.session_state.image_path,
             caption="Your Photo",
-            width=250  # smaller fixed width to reduce height
+            width=250 
         )
 
     with right_col:
         if st.session_state.describe_outfit is None:
-            with st.spinner("Analyzing your outfit..."):
+            with st.spinner("👗 Analyzing your outfit..."):
                 st.session_state.describe_outfit = describe_outfit(st.session_state.image_path)
 
         st.markdown("""
@@ -37,7 +34,7 @@ def render():
         """, unsafe_allow_html=True)
 
 
-        st.markdown("#### 🧾 Outfit Description")
+        st.markdown("#### Outfit Description")
 
         # Clean display without textbox
         st.markdown(

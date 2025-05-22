@@ -1,10 +1,13 @@
 import streamlit as st
+
 from components.navigation import navigation_controls
 
-if 'context' not in st.session_state:
-    st.session_state['context'] = None
+
 
 def render():
+    if 'context' not in st.session_state:
+        st.session_state['context'] = None
+
     st.subheader("Step 5: Event / Context")
     
     st.markdown("---")
@@ -19,7 +22,7 @@ def render():
         )
 
     with right_col:
-        st.markdown("#### 🗓️ Where is the person going?")
+        st.markdown("#### Where is the person going?")
         context_input = st.text_input(
             label="",
             value=st.session_state.context or "",

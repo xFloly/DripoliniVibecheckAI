@@ -1,12 +1,15 @@
 import streamlit as st
-from components.navigation import navigation_controls
-from utils.face import analyze_face  # formerly emotion.py
 
-# Ensure session state key exists
-if 'face' not in st.session_state:
-    st.session_state['face'] = None
+from components.navigation import navigation_controls
+from utils.face import analyze_face 
+
 
 def render():
+    # Ensure session state key exists
+    if 'face' not in st.session_state:
+        st.session_state['face'] = None
+
+
     st.subheader("Step 3: Face Analysis")
 
     st.markdown("---") 

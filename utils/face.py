@@ -1,7 +1,7 @@
 from deepface import DeepFace
 
 def analyze_face(image_path):
-    analysis = DeepFace.analyze(img_path=image_path, actions=['emotion', 'age', 'gender'])
+    analysis = DeepFace.analyze(img_path=image_path, actions=['emotion', 'age', 'gender'], model_name='Facenet')
     result = analysis[0]
 
     return {

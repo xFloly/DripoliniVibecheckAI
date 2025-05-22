@@ -1,4 +1,5 @@
 import streamlit as st
+
 from components.navigation import navigation_controls
 from utils.gemini_api import propose_clothes
 
@@ -14,7 +15,7 @@ if 'clothing_catalog' not in st.session_state:
 
 def render():
     st.subheader("Step 5: Propose Outfit")
-    
+
     st.markdown("---")
 
     if st.session_state.propose is None:
