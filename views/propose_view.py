@@ -14,15 +14,20 @@ if 'clothing_catalog' not in st.session_state:
 
 def render():
     st.subheader("Step 5: Propose Outfit")
-    st.image(st.session_state.image_path)
+    st.markdown("---")
 
     if st.session_state.propose is None:
         with st.spinner("Proposing new outfit..."):
-            st.session_state.propose = propose_clothes(st.session_state.image_path, st.session_state.outfit_desc, st.session_state.emotion, st.session_state.colors, st.session_state.context)
-                    
-    st.markdown("### 👗 Proposed Clothing Items:")
+            st.session_state.propose = propose_clothes(
+                st.session_state.image_path,
+                st.session_state.describe_outfit,
+                st.session_state.face,
+                st.session_state.colors,
+                st.session_state.context
+            )
 
-    # Prepare display and radio options
+
+    # Prepare options
     options = []
     id_to_item = {}
 
@@ -38,16 +43,29 @@ def render():
             "description": desc
         }
 
-    # Show the selection radio
-    selected_label = st.radio("Select one item to try on:", options)
+    # Layout: left = original image, right = choices + preview
+    left_col, right_col = st.columns([2, 3], gap="large")
 
-    selected_id = id_to_item[selected_label]["id"]
-    st.session_state['selected_item_id'] = selected_id
+    with left_col:
+        st.image(
+            st.session_state.image_path,
+            width=250
+        )
 
-    # Visualize selected image
-    st.image(id_to_item[selected_label]["path"], caption=f"Selected: {id_to_item[selected_label]['description']}", use_container_width=True)
+    with right_col:
+        st.markdown("### 👗 Proposed Clothing Items")
+        st.markdown("#### Select one item to try on:")
+        selected_label = st.radio("options", options)
+        selected_id = id_to_item[selected_label]["id"]
+        st.session_state['selected_item_id'] = selected_id
 
-    st.success(f"You selected item ID: {selected_id}")
+        st.image(
+            id_to_item[selected_label]["path"],
+            caption=f"Selected: {id_to_item[selected_label]['description']}",
+            width=320
+        )
+
+        st.success(f"You selected item ID: {selected_id}")
 
     navigation_controls(
         current_step='propose',

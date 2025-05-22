@@ -16,31 +16,20 @@ def describe_outfit(image_path, extra_prompt=None):
     """Send image to Gemini and return a clothing description."""
     image = Image.open(image_path)
     
-    base_prompt = "Describe in detail what the person is wearing: clothing type, color, and style."
+    base_prompt = "Describe in detail what the person is wearing: clothing type, color, and style. But keep it short in max 7 plain-text sentences "
     full_prompt = base_prompt if not extra_prompt else f"{base_prompt} {extra_prompt}"
 
     response = model.generate_content([full_prompt, image])
     return response.text
 
-def describe_emotion(image_path, extra_prompt=None):
-    image = Image.open(image_path)
 
-    base_prompt = (
-        "Analyze the person's facial expression and describe their likely emotional state "
-        "(e.g., happy, sad, angry, surprised)."
-    )
-    full_prompt = base_prompt if not extra_prompt else f"{base_prompt} {extra_prompt}"
-
-    response = model.generate_content([full_prompt, image])
-    return response.text
-
-def propose_clothes(image_path, outfit_desc,emotion, colors, context):
+def propose_clothes(image_path, outfit_desc,face_data, colors, context):
 
     image = Image.open(image_path)
 
     full_prompt, catalog = utils.prompt.build_prompt(
         outfit_desc=outfit_desc,
-        emotion=emotion,
+        face_data=face_data,
         colors=colors,
         context=context
     )

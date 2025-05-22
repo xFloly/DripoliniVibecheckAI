@@ -32,31 +32,40 @@ def decode_clothing_output(output, clothing_catalog):
     
 
 
-def build_prompt(outfit_desc, emotion, colors, context):
+def build_prompt(outfit_desc, face_data, colors, context):
     color_str = ', '.join(colors)
     # return f"The person is {emotion}. Their color palette includes {color_str}. They are going to {context}."
 
+    emotion = face_data['emotion']
+    age = face_data['age']
+    gender = face_data['gender']
 
     prompt = (
-        f"The person is {emotion}. "
+        f"The person appears to be {emotion}, around {age} years old, and presents as {gender}. "
         f"Their color palette includes: {color_str}. "
         f"They are going to {context}. "
         f"Currently, they are wearing: {outfit_desc}.\n\n"
         
         "Based on the above information:\n"
         "1. Determine whether the current outfit is appropriate for the specified context.\n"
-        "2. If it is not appropriate, suggest specific improvements (e.g., change in style, garment type, color).\n"
-        "3. Recommend exactly three new clothing items that better match the context and emotional tone.\n"
-        "4. Select appropriate items from the following dataset catalog to replace or enhance the outfit.\n"
+        "2. If not, suggest improvements in clothing type, color, or style.\n"
+        "3. Recommend exactly **three** new clothing items from the dataset below that match the emotional tone and context.\n"
     )
-    # load the clothing inventory tags
-        
+
+    # Load catalog and add to session
     clothing_catalog = load_clothing_catalog('clothes.csv')
     st.session_state.clothing_catalog = clothing_catalog
-    prompt += f"\nAvailable clothing items in the dataset include:\n"
+
+    # Append dataset descriptions
+    prompt += "\nAvailable clothing items in the dataset include:\n"
     for item_id, item in clothing_catalog.items():
         prompt += f"- {item.get_cloth_description()} (ID: {item.get_cloth_id()})\n"
 
-    prompt += "\nRespond clearly with a justification and item references that could be used in a virtual try-on., provide 3 numbers id, only seperated by common, and no other text.\n"
-    prompt += "The response should be like '10,16,2' Nothing more!!!! Just a 3 numbers id!!!! Even if they not fit\n"
+    # Final strict instruction
+    prompt += (
+        "\nRespond with exactly **three clothing IDs**, separated by commas, and NOTHING else.\n"
+        "Example response: `3,7,12`\n"
+        "**No explanations. No extra text. Just the numbers.**"
+    )
+
     return prompt, clothing_catalog

@@ -1,5 +1,5 @@
 import streamlit as st
-from views import upload_view, outfit_view, emotion_view, color_view, context_view, summary_view, propose_view, try_on_view
+from views import upload_view, outfit_view, face_view, color_view, context_view, summary_view, propose_view, try_on_view
 
 # Initialize session state
 if 'step' not in st.session_state:
@@ -19,8 +19,8 @@ elif st.session_state.step == 'upload':
 elif st.session_state.step == 'describe_outfit':
     outfit_view.render()
 
-elif st.session_state.step == 'emotion':
-    emotion_view.render()
+elif st.session_state.step == 'face':
+    face_view.render()
 
 elif st.session_state.step == 'colors':
     color_view.render()

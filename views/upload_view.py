@@ -7,6 +7,8 @@ from components.navigation import navigation_controls
 
 def render():
     st.subheader("Step 1: Upload your photo")
+    st.markdown("---")
+
     uploaded_file = st.file_uploader("Upload an image with a person", type=['png', 'jpg', 'jpeg'])
 
     # Initialize detection state if not present
@@ -19,7 +21,8 @@ def render():
             st.session_state.image_path = tmp_file.name
             st.session_state.person_detected = False  # Reset state on new upload
 
-        st.image(st.session_state.image_path, caption="Uploaded Photo")
+        st.image(st.session_state.image_path, caption="Uploaded Photo", width=250)
+        
         detections = detect_face_body(st.session_state.image_path)
 
         if len(detections.boxes) > 0:

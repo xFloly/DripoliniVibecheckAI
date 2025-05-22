@@ -6,11 +6,28 @@ if 'context' not in st.session_state:
 
 def render():
     st.subheader("Step 5: Event / Context")
-    st.image(st.session_state.image_path)
+    
+    st.markdown("---")
 
-    context = st.text_input("Where is the person going? (e.g., conference, party, office)", value=st.session_state.context or "")
-    if context:
-        st.session_state.context = context
+    left_col, right_col = st.columns([1, 2], gap="large")
+
+    with left_col:
+        st.image(
+            st.session_state.image_path,
+            caption="Your Photo",
+            width=250
+        )
+
+    with right_col:
+        st.markdown("#### 🗓️ Where is the person going?")
+        context_input = st.text_input(
+            label="",
+            value=st.session_state.context or "",
+            placeholder="e.g., conference, party, office"
+        )
+
+        if context_input:
+            st.session_state.context = context_input
 
     navigation_controls(
         current_step='context',

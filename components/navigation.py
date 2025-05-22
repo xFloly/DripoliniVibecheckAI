@@ -1,6 +1,15 @@
 import streamlit as st
 
 def navigation_controls(current_step, back_step=None,next_step=None):
+    st.markdown("""
+        <style>
+        .big-button button {
+            font-size: 18px !important;
+            padding: 10px 24px !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+        
     col1, col2, col3 = st.columns([1, 1, 1])
 
     with col1:
