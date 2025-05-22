@@ -2,11 +2,14 @@ import streamlit as st
 from components.navigation import navigation_controls
 from utils.gemini_api import describe_outfit
 
-if 'describe_outfit' not in st.session_state:
-    st.session_state['describe_outfit'] = None
+if "describe_outfit" not in st.session_state:
+    st.session_state.describe_outfit = None
 
 
 def render():
+    if "describe_outfit" not in st.session_state:
+        st.session_state.describe_outfit = None
+
     st.subheader("Step 2: Outfit Analysis")
     
     st.markdown("---") 

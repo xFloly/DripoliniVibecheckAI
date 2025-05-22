@@ -32,5 +32,5 @@ def render():
     navigation_controls(
         current_step='context',
         back_step='colors',
-        next_step='done' if st.session_state.context else None
+        next_step='summary' if st.session_state.context else None
     )

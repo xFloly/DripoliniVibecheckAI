@@ -31,7 +31,7 @@ elif st.session_state.step == 'context':
 elif st.session_state.step == 'propose':
     propose_view.render()
 
-elif st.session_state.step == 'done':
+elif st.session_state.step == 'summary':
     summary_view.render()
     
 elif st.session_state.step == 'try_on':

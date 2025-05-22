@@ -14,6 +14,7 @@ if 'clothing_catalog' not in st.session_state:
 
 def render():
     st.subheader("Step 5: Propose Outfit")
+    
     st.markdown("---")
 
     if st.session_state.propose is None:
@@ -69,6 +70,6 @@ def render():
 
     navigation_controls(
         current_step='propose',
-        back_step='done',
+        back_step='summary',
         next_step='try_on' if st.session_state['selected_item_id'] else None
     )

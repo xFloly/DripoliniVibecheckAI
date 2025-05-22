@@ -8,6 +8,7 @@ if 'fitted_person' not in st.session_state:
 
 def render():
     st.subheader("Step 6: Try on the outfit")
+    
     st.session_state.fitted_person = None
     if st.session_state.fitted_person is None:
         with st.spinner("Generating your outfit..."):
@@ -21,5 +22,5 @@ def render():
 
     navigation_controls(
         current_step='try_on',
-        back_step='done',
+        back_step='summary',
     )

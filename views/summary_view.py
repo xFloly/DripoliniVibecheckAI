@@ -3,7 +3,7 @@ from components.navigation import navigation_controls
 
 def render():
     st.subheader("✅ Summary")
-
+    
     st.markdown("---")
 
     left_col, right_col = st.columns([1, 2], gap="large")
@@ -47,7 +47,7 @@ def render():
         )
 
     navigation_controls(
-        current_step='done',
+        current_step='summary',
         back_step='context',
         next_step='propose'
     )
