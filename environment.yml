@@ -1,19 +1,19 @@
-name: informatyka_afektywna
+name: dripolini
 channels:
-  - defaults
   - conda-forge
+  - defaults
   - anaconda
 dependencies:
   - python=3.10
   - pip
   - numpy>=1.21
   - pillow
+  - scikit-learn
   - pip:
       - deepface==0.0.83
       - opencv-python==4.7.0.72
       - tensorflow==2.13.0
       - streamlit==1.45.1
       - ultralytics
-      - scikit-learn
       - google-generativeai
       - gradio_client

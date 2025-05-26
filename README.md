@@ -71,7 +71,7 @@ cd ciuchy
 ```
 ### 2. Set up the environment
 ```bash
-conda env create -f environment.yaml
+conda env create -f environment.yml
 conda activate dripolini
 ```
 Make sure you have ultralytics, streamlit, opencv-python, scikit-learn, deepface, and google-generativeai installed.
