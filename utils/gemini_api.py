@@ -6,7 +6,7 @@ import streamlit as st
 
 
 # Initialize Gemini with API key
-genai.configure(api_key='AIzaSyDNam5AtruOM5K3VviHIUj9FpOtaZcp8Cs')
+genai.configure(api_key=os.getenv("YOUR_GEMINI_API_KEY"))
 
 # Load the Gemini Pro Vision model
 model = genai.GenerativeModel("models/gemini-1.5-flash-latest")
