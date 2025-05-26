@@ -12,7 +12,7 @@ def run_try_on(person_image, cloth_image):
     result = client.predict(
         person_image=person_image,
         cloth_image=cloth_image,
-        num_inference_steps=5,
+        num_inference_steps=50,
         guidance_scale=2.5,
         seed=42,
         api_name="/submit_function_p2p"
