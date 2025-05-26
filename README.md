@@ -1,8 +1,14 @@
 # 👕 Dripolini Vibecheck AI  
 ### _Your fit. Upgraded._
 
+<p align="center">
+  <img src="img\mascot.png" alt="Dripolini Mascot" style="width: 100%; max-width: 700px; border-radius: 12px;" />
+</p>
+
+
 Welcome to **Dripolini Vibecheck AI**, a neural rendering–powered virtual stylist that analyzes your look and suggests outfit improvements using AI.  
-Created as part of the **Neural Rendering in 3D** course project.
+
+Created as part of the **Neural Rendering in 3D** course project at Jagiellonian University.
 
 ---
 
