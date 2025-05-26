@@ -39,8 +39,6 @@ Thumbs.db
 *.npz
 
 # Generated images/videos
-*.jpg
-*.jpeg
 *.mp4
 *.avi
 
