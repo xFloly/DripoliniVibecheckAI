@@ -1,4 +1,4 @@
-# 👕 Dripolini Vibecheck AI  
+# Dripolini Vibecheck AI  
 ### _Your fit. Upgraded._
 
 <p align="center">
@@ -72,8 +72,8 @@ This project demonstrates how neural rendering and AI-driven multimodal systems 
 ## 🚀 How to Run Locally
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/xFloly/dripolini-vibecheck-ai.git
-cd ciuchy
+https://github.com/xFloly/DripoliniVibecheckAI.git
+cd DripoliniVibecheckAI
 ```
 ### 2. Set up the environment
 ```bash
